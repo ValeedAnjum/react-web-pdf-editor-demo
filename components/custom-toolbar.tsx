@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import type { ToolbarApi, Tool } from "react-web-pdf-editor";
 
 const ACCENT = "#6f62e8";
@@ -135,12 +135,6 @@ function DocumentName({
   const cancelRef = useRef(false);
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(name);
-
-  useEffect(() => {
-    if (!editing) {
-      setDraft(name);
-    }
-  }, [editing, name]);
 
   useLayoutEffect(() => {
     if (!editing) {
